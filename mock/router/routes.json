@@ -1,0 +1,5 @@
+{
+	"/api/*": "/$1",
+	"/imock_user/:id": "/imock_user/:id",
+	"/imock_order/:id": "/imock_order/:id"
+}
