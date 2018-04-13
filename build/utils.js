@@ -3,6 +3,7 @@ const path = require('path')
 const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
+const glob = require('glob')
 
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
@@ -99,3 +100,21 @@ exports.createNotifierCallback = () => {
     })
   }
 }
+
+// Generate entry
+exports.getEntries = function (globPath) {
+  var entries = {};
+  /**
+   * 读取src目录,并进行路径裁剪
+   */
+  glob.sync(globPath).forEach(function (entry) {
+    // ***************begin***************
+    // slice 从已有的数组中返回选定的元素, -3 倒序选择，即选择最后三个
+    var tmp = entry.split('/').splice(-3);
+    var pathname = tmp.splice(1, 1); // splice(0, 1)取tmp数组中第一个元素
+    // ***************end***************
+    entries[pathname] = entry;
+  });
+  // console.log(entries);
+  return entries;
+};
