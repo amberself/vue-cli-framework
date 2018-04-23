@@ -45,11 +45,15 @@
 			},
 			//通过vuex+axios请求模拟接口
 			vuex_jserver() {
+				//参数
+				let param = {};
+				param.itemID = "123"; //参数传递测试
+
 				this.$store.commit("SET_DATA", "vuex_jserver");
-				this.$store.dispatch("getIMockOrder", "").then((data) => {
-					console.log("success", data);
+				this.$store.dispatch("getIMockOrder", param).then((data) => {
+					console.log(data);
 				}, (error) => {
-					console.log("error", error);
+					console.log(error);
 				});
 			}
 		}
