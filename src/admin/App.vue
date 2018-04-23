@@ -10,6 +10,6 @@
 	}
 </script>
 
-<style>
-
+<style lang="css" scoped>
+	
 </style>
