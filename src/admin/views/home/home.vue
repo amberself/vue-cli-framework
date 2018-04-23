@@ -1,12 +1,17 @@
 <template>
 	<div id="home">
-		<div class="title wow flash">主页</div>
+		<div>---------------------------------------------</div>
+		<div class="title wow flash">接口模块</div>
 		<el-button type="success" @click="cross_domain">proxyTable代理请求跨域模拟接口</el-button>
 		<el-button type="success" @click="axios_jserver">axios请求模拟接口</el-button>
 		<br />
 		<br />
 		<br />
 		<el-button type="success" @click="vuex_jserver">vuex+axios组合请求模拟接口</el-button>
+		<div>---------------------------------------------</div>
+		<div class="title wow flash">UI模块</div>
+		
+		<div>---------------------------------------------</div>
 	</div>
 </template>
 
