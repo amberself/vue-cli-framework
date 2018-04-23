@@ -13,11 +13,9 @@ const entryPath = pro_name ?
 	`./src/${pro_name}/main.js` :
 	"./src/**/main.js";
 
-console.log(utils.getEntries(`${entryPath}`));
-
 module.exports = {
 	context: path.resolve(__dirname, '../'),
-	entry: utils.getEntries(`${entryPath}`),
+	entry: utils.getEntries(`${entryPath}`), //选定启动项目路径
 	output: {
 		path: config.build.assetsRoot,
 		filename: '[name].js',

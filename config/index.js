@@ -12,9 +12,9 @@ module.exports = {
 	dev: {
 		// Paths
 		assetsSubDirectory: 'static',
-		assetsPublicPath: cdn_env,
+		assetsPublicPath: '/',
 
-		//代理方法功能：设置/helloui.net为http://www.helloui.net的代理访问
+		//代理方法功能：设置/api为http://www.helloui.net的代理访问
 		proxyTable: {
 			'/api': {
 				target: 'http://www.helloui.net',
@@ -66,7 +66,7 @@ module.exports = {
 		// Paths
 		assetsRoot: path.resolve(__dirname, '../dist'),
 		assetsSubDirectory: 'static',
-		assetsPublicPath: '/',
+		assetsPublicPath: cdn_env,
 
 		/**
 		 * Source Maps

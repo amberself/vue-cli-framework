@@ -1,0 +1,4 @@
+（1）this.$router.push与this.$router.replace的区别
+this.$router.push：这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。
+this.$router.replace：跟 router.push 很像，唯一的不同就是，它不会向 history 添加新记录，而是跟它的方法名一样 —— 替换掉当前的 history 记录
+
