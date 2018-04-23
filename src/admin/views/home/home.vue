@@ -2,22 +2,27 @@
 	<div id="home">
 		<div>---------------------------------------------</div>
 		<div class="title wow flash">接口模块</div>
-		<el-button type="success" @click="cross_domain">proxyTable代理请求跨域模拟接口</el-button>
-		<el-button type="success" @click="axios_jserver">axios请求模拟接口</el-button>
-		<br />
-		<br />
-		<br />
-		<el-button type="success" @click="vuex_jserver">vuex+axios组合请求模拟接口</el-button>
+		<inter />
+		<div>---------------------------------------------</div>
+		<div class="title wow flash">child模块</div>
+		<router-view/>
+		<router-link to="/home/child1">
+			<el-button type="success">child1</el-button>
+		</router-link>
+		<router-link to="/home/child2">
+			<el-button type="success">child2</el-button>
+		</router-link>
 		<div>---------------------------------------------</div>
 		<div class="title wow flash">UI模块</div>
-		
-		<div>---------------------------------------------</div>
+		<ui></ui>
 	</div>
 </template>
 
 <script>
 	import 'wowjs/css/libs/animate.css'
 	import WowJS from 'wowjs'
+	import Inter from './inter.vue'
+	import Ui from './ui.vue'
 
 	export default {
 		name: 'home',
@@ -29,38 +34,9 @@
 			});
 			wow.init();
 		},
-		methods: {
-			//开发环境跨域时，通过proxyTable代理请求模拟接口，跨域访问http://www.helloui.net网站的数据接口
-			cross_domain() {
-				let path = "http://127.0.0.1/api/process_get?name=shbol";
-				this.$http.get(path).then(function(resp) {
-					console.log(resp);
-				}).catch(error => {
-					console.log(error);
-				});
-			},
-			//通过axios请求模拟接口
-			axios_jserver() {
-				let path = "/imock_user";
-				this.$http.get(path).then(function(resp) {
-					console.log(resp.data);
-				}).catch(error => {
-					console.log(error);
-				});
-			},
-			//通过vuex+axios请求模拟接口
-			vuex_jserver() {
-				//参数
-				let param = {};
-				param.itemID = "123"; //参数传递测试
-
-				this.$store.commit("SET_DATA", "vuex_jserver");
-				this.$store.dispatch("getIMockOrder", param).then((data) => {
-					console.log(data);
-				}, (error) => {
-					console.log(error);
-				});
-			}
+		components: {
+			Inter,
+			Ui
 		}
 	}
 </script>

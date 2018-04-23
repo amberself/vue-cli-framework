@@ -92,6 +92,5 @@ export const SetRouterTransition = function(router, store) {
 	/* 页面跳转后 */
 	router.afterEach((transition) => {
 		let title = transition.meta.pageTitle;
-		console.log(title);
 	});
 }
