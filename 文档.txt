@@ -18,5 +18,9 @@ this.$router.replace：跟 router.push 很像，唯一的不同就是，它不�
 </script>
 关于props传参，可用如图<list v-for="item in items" :key="item.id" :id="item.id" :data="item.data"></list>
 
+（3）清理node_modules命令
+npm install rimraf -g
+rimraf node_modules
+
 
 
