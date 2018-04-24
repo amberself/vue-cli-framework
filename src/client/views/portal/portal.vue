@@ -1,7 +1,9 @@
+<!--
+	门户网站入口
+-->
 <template>
 	<div>
-		portal
-		<el-button type="success">按钮</el-button>
+		this is portal
 	</div>
 </template>
 
