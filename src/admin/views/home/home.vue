@@ -33,9 +33,6 @@
 				callback: function(box) {}
 			});
 			wow.init();
-
-			// jquery
-			//			$("#home").css("color", "blue"); //JQuery的应用
 		},
 		components: {
 			Inter,
