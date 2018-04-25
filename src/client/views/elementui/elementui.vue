@@ -12,6 +12,9 @@
 		<router-link to="/ElementUI/UIForm2">
 			<button>Form2</button>
 		</router-link>
+		<router-link to="/ElementUI/UIData">
+			<button>UIData</button>
+		</router-link>
 		<router-view/>
 	</div>
 </template>

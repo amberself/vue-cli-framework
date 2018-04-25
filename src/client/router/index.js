@@ -5,6 +5,7 @@ import ElementUI from '../views/elementui/elementui'
 import UIBase from '../views/elementui/UIBase'
 import UIForm1 from '../views/elementui/UIForm1'
 import UIForm2 from '../views/elementui/UIForm2'
+import UIData from '../views/elementui/UIData'
 
 Vue.use(Router)
 
@@ -29,6 +30,10 @@ export default new Router({
 				path: '/ElementUI/UIForm2',
 				component: UIForm2,
 				name: 'UIForm2'
+			}, {
+				path: '/ElementUI/UIData',
+				component: UIData,
+				name: 'UIData'
 			}]
 		},
 		{
