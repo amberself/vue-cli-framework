@@ -4,7 +4,8 @@
 <template>
 	<div id="uibase">
 		<div id="layout" class="onepath">
-			<div>layout布局 24列规则 el-row表示行，el-col表示列，列用:span属性设置所占比例</div>
+			<div class="title">layout布局 24列规则 el-row表示行，el-col表示列，列用:span属性设置所占比例</div>
+			<br />
 			<div>
 				<el-row>
 					<el-col :span="24">
@@ -33,7 +34,8 @@
 			</div>
 		</div>
 		<div id="container" class="onepath">
-			<div>container布局容器 分为el-header、el-main、el-footer、el-aside四种，需包裹在el-container里</div>
+			<div class="title">container布局容器 分为el-header、el-main、el-footer、el-aside四种，需包裹在el-container里</div>
+			<br />
 			<div>
 				<el-container>
 					<el-header>Header</el-header>
@@ -64,7 +66,8 @@
 			</div>
 		</div>
 		<div id="icon" class="onepath">
-			<div>图标</div>
+			<div class="title">图标</div>
+			<br />
 			<div>
 				<i class="el-icon-loading"></i>
 				<i class="el-icon-edit"></i>
@@ -74,7 +77,8 @@
 			</div>
 		</div>
 		<div id="button" class="onepath">
-			<div>按钮 属性：size 尺寸、type 类型、plain 是否朴素按钮、round 是否圆角按钮、circle 是否圆形按钮、loading 是否加载中状态、disabled 是否禁用状态、icon 图标类名、autofocus 是否默认聚焦、native-type 原生 type 属性</div>
+			<div class="title">按钮 属性：size 尺寸、type 类型、plain 是否朴素按钮、round 是否圆角按钮、circle 是否圆形按钮、loading 是否加载中状态、disabled 是否禁用状态、icon 图标类名、autofocus 是否默认聚焦、native-type 原生 type 属性</div>
+			<br />
 			<div>
 				<el-row>
 					<el-button>默认按钮</el-button>
@@ -126,6 +130,11 @@
 <style lang="scss" scoped>
 	.onepath {
 		margin-top: 20px;
+	}
+	
+	.title {
+		background-color: cadetblue;
+		padding: 5px;
 	}
 	/*layout布局*/
 	

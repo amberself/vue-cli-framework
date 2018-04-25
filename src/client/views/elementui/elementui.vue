@@ -9,6 +9,9 @@
 		<router-link to="/ElementUI/UIForm1">
 			<button>Form1</button>
 		</router-link>
+		<router-link to="/ElementUI/UIForm2">
+			<button>Form2</button>
+		</router-link>
 		<router-view/>
 	</div>
 </template>

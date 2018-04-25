@@ -2,7 +2,7 @@
 	elementui form 组件
 -->
 <template>
-	<div id="uiform">
+	<div id="uiform1">
 		<div id="radio" class="onepath">
 			<div class="title">单选组件</div>
 			<br />
@@ -345,7 +345,7 @@
 <script>
 	const cityOptions = ['上海', '北京', '广州', '深圳'];
 	export default {
-		name: "uiform",
+		name: "uiform1",
 		data() {
 			return {
 				radio: 'b',
