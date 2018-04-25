@@ -6,8 +6,8 @@
 		<router-link to="/ElementUI/UIBase">
 			<button>Base</button>
 		</router-link>
-		<router-link to="/ElementUI/UIForm">
-			<button>Form</button>
+		<router-link to="/ElementUI/UIForm1">
+			<button>Form1</button>
 		</router-link>
 		<router-view/>
 	</div>

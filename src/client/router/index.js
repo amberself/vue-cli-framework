@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Portal from '../views/portal/portal'
 import ElementUI from '../views/elementui/elementui'
-import UIForm from '../views/elementui/UIForm'
+import UIForm1 from '../views/elementui/UIForm1'
 import UIBase from '../views/elementui/UIBase'
 
 Vue.use(Router)
@@ -21,9 +21,9 @@ export default new Router({
 				component: UIBase,
 				name: 'UIBase'
 			}, {
-				path: '/ElementUI/UIForm',
-				component: UIForm,
-				name: 'UIForm'
+				path: '/ElementUI/UIForm1',
+				component: UIForm1,
+				name: 'UIForm1'
 			}]
 		},
 		{

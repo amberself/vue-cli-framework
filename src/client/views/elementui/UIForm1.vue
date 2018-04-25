@@ -259,6 +259,86 @@
 				<el-autocomplete v-model="state4" :fetch-suggestions="querySearchAsync" placeholder="请输入内容" @select="handleSelect"></el-autocomplete>
 			</div>
 		</div>
+		<div id="inputNumber" class="onepath">
+			<div class="title">计数器</div>
+			<br /> 基础用法：
+			<div>
+				<el-input-number v-model="num1" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+			</div>
+			<br /> 禁用状态：
+			<div>
+				<el-input-number v-model="num2" :disabled="true"></el-input-number>
+			</div>
+			<br /> 步数递增减：
+			<div>
+				<el-input-number v-model="num3" :step="2"></el-input-number>
+			</div>
+			<br /> 尺寸：
+			<div>
+				<el-input-number v-model="num4"></el-input-number>
+				<el-input-number size="medium" v-model="num5"></el-input-number>
+				<el-input-number size="small" v-model="num6"></el-input-number>
+				<el-input-number size="mini" v-model="num7"></el-input-number>
+			</div>
+			<br /> 按钮位置：
+			<div>
+				<el-input-number v-model="num8" controls-position="right" @change="handleChange" :min="1" :max="10"></el-input-number>
+			</div>
+		</div>
+		<div id="select" class="onepath">
+			<div class="title">Select选择器</div>
+			<br /> 基础用法：
+			<div>
+				<el-select v-model="value2" placeholder="请选择">
+					<el-option v-for="item in options2" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled">
+					</el-option>
+				</el-select>
+			</div>
+			<br /> 可清空单选：
+			<div>
+				<el-select v-model="value4" clearable placeholder="请选择">
+					<el-option v-for="item in options2" :key="item.value" :label="item.label" :value="item.value">
+					</el-option>
+				</el-select>
+			</div>
+			<br /> 带分组的项：
+			<div>
+				<el-select v-model="value7" placeholder="请选择">
+					<el-option-group v-for="group in options3" :key="group.label" :label="group.label">
+						<el-option v-for="item in group.options" :key="item.value" :label="item.label" :value="item.value">
+						</el-option>
+					</el-option-group>
+				</el-select>
+			</div>
+			<br /> 带输入搜索：
+			<div>
+				<el-select v-model="value8" filterable placeholder="请选择">
+					<el-option v-for="item in options2" :key="item.value" :label="item.label" :value="item.value">
+					</el-option>
+				</el-select>
+			</div>
+			<br /> 基础多选：
+			<div>
+				<el-select v-model="value5" multiple placeholder="请选择">
+					<el-option v-for="item in options2" :key="item.value" :label="item.label" :value="item.value">
+					</el-option>
+				</el-select>
+			</div>
+			<br /> 创建条目多选：
+			<div>
+				<el-select v-model="value10" multiple filterable allow-create default-first-option placeholder="请选择文章标签">
+					<el-option v-for="item in options2" :key="item.value" :label="item.label" :value="item.value">
+					</el-option>
+				</el-select>
+			</div>
+			<br /> 远程搜索：
+			<div>
+				<el-select v-model="value9" multiple filterable remote reserve-keyword placeholder="请输入关键词" :remote-method="remoteMethod" :loading="loading">
+					<el-option v-for="item in options4" :key="item.value" :label="item.label" :value="item.value">
+					</el-option>
+				</el-select>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -318,7 +398,85 @@
 				state1: '',
 				state2: '',
 				state3: '',
-				state4: ''
+				state4: '',
+				num1: 1,
+				num2: 2,
+				num3: 5,
+				num4: 1,
+				num5: 1,
+				num6: 1,
+				num7: 1,
+				num8: 1,
+				options2: [{
+					value: '选项1',
+					label: '黄金糕'
+				}, {
+					value: '选项2',
+					label: '双皮奶',
+					disabled: true
+				}, {
+					value: '选项3',
+					label: '蚵仔煎'
+				}, {
+					value: '选项4',
+					label: '龙须面'
+				}, {
+					value: '选项5',
+					label: '北京烤鸭'
+				}],
+				value2: '',
+				value4: '',
+				options3: [{
+					label: '热门城市',
+					options: [{
+						value: 'Shanghai',
+						label: '上海'
+					}, {
+						value: 'Beijing',
+						label: '北京'
+					}]
+				}, {
+					label: '城市名',
+					options: [{
+						value: 'Chengdu',
+						label: '成都'
+					}, {
+						value: 'Shenzhen',
+						label: '深圳'
+					}, {
+						value: 'Guangzhou',
+						label: '广州'
+					}, {
+						value: 'Dalian',
+						label: '大连'
+					}]
+				}],
+				value7: '',
+				value8: '',
+				value5: '',
+				value10: [],
+				options4: [],
+				value9: [],
+				list: [],
+				loading: false,
+				states: ["Alabama", "Alaska", "Arizona",
+					"Arkansas", "California", "Colorado",
+					"Connecticut", "Delaware", "Florida",
+					"Georgia", "Hawaii", "Idaho", "Illinois",
+					"Indiana", "Iowa", "Kansas", "Kentucky",
+					"Louisiana", "Maine", "Maryland",
+					"Massachusetts", "Michigan", "Minnesota",
+					"Mississippi", "Missouri", "Montana",
+					"Nebraska", "Nevada", "New Hampshire",
+					"New Jersey", "New Mexico", "New York",
+					"North Carolina", "North Dakota", "Ohio",
+					"Oklahoma", "Oregon", "Pennsylvania",
+					"Rhode Island", "South Carolina",
+					"South Dakota", "Tennessee", "Texas",
+					"Utah", "Vermont", "Virginia",
+					"Washington", "West Virginia", "Wisconsin",
+					"Wyoming"
+				]
 			};
 		},
 		methods: {
@@ -377,10 +535,33 @@
 			},
 			handleIconClick(ev) {
 				console.log(ev);
+			},
+			handleChange(value) {
+				console.log(value);
+			},
+			remoteMethod(query) {
+				if(query !== '') {
+					this.loading = true;
+					setTimeout(() => {
+						this.loading = false;
+						this.options4 = this.list.filter(item => {
+							return item.label.toLowerCase()
+								.indexOf(query.toLowerCase()) > -1;
+						});
+					}, 200);
+				} else {
+					this.options4 = [];
+				}
 			}
 		},
 		mounted() {
 			this.restaurants = this.loadAll();
+			this.list = this.states.map(item => {
+				return {
+					value: item,
+					label: item
+				};
+			});
 		}
 	}
 </script>
