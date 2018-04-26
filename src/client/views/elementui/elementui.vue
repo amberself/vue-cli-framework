@@ -15,6 +15,12 @@
 		<router-link to="/ElementUI/UIData">
 			<button>UIData</button>
 		</router-link>
+		<router-link to="/ElementUI/UINotice">
+			<button>UINotice</button>
+		</router-link>
+		<router-link to="/ElementUI/UINavigation">
+			<button>UINavigation</button>
+		</router-link>
 		<router-view/>
 	</div>
 </template>

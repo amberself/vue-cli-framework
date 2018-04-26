@@ -85,6 +85,42 @@
 				</div>
 			</div>
 		</div>
+		<div class="onepath">
+			<div class="title">Badge 标记</div>
+			<br /> 基础用法：
+			<div style="margin-top: 20px;">
+				<el-badge :value="12" class="item">
+					<el-button size="small">评论</el-button>
+				</el-badge>
+			</div>
+			<br /> 定义最大值：
+			<div style="margin-top: 20px;">
+				<el-badge :value="200" :max="99" class="item">
+					<el-button size="small">评论</el-button>
+				</el-badge>
+			</div>
+			<br /> 自定义内容：
+			<div style="margin-top: 20px;">
+				<el-badge value="new" class="item">
+					<el-button size="small">评论</el-button>
+				</el-badge>
+			</div>
+			<br /> 小红点：
+			<div style="margin-top: 20px;">
+				<el-badge is-dot class="item">数据查询</el-badge>
+				<el-badge is-dot class="item" style="margin-left: 20px;">
+					<el-button class="share-button" icon="el-icon-share" type="primary"></el-button>
+				</el-badge>
+			</div>
+		</div>
+
+		<div class="onepath">
+			<div class="title">Tree 树形控件</div>
+			<br /> 基础用法：
+			<div>
+					
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -136,6 +172,14 @@
 </script>
 
 <style lang="scss" scoped>
+	.onepath {
+		margin-top: 20px;
+	}
+	
+	.title {
+		background-color: cadetblue;
+		padding: 5px;
+	}
 	/*Tag标签*/
 	
 	.el-tag+.el-tag {

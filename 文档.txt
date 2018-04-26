@@ -22,5 +22,8 @@ this.$router.replace：跟 router.push 很像，唯一的不同就是，它不�
 npm install rimraf -g
 rimraf node_modules
 
+(4) document.querySelector用法 获取标签对象并修改样式
+document.querySelector("#etble .el-loading-mask").style.fontSize = "30px";
+
 
 
