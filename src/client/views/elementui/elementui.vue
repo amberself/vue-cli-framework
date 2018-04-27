@@ -21,6 +21,9 @@
 		<router-link to="/ElementUI/UINavigation">
 			<button>UINavigation</button>
 		</router-link>
+		<router-link to="/ElementUI/UIOthers">
+			<button>UIOthers</button>
+		</router-link>
 		<router-view/>
 	</div>
 </template>

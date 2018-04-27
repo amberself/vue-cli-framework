@@ -8,6 +8,7 @@ import UIForm2 from '../views/elementui/UIForm2'
 import UIData from '../views/elementui/UIData'
 import UINotice from '../views/elementui/UINotice'
 import UINavigation from '../views/elementui/UINavigation'
+import UIOthers from '../views/elementui/UIOthers'
 
 Vue.use(Router)
 
@@ -44,6 +45,10 @@ export default new Router({
 				path: '/ElementUI/UINavigation',
 				component: UINavigation,
 				name: 'UINavigation'
+			}, {
+				path: '/ElementUI/UIOthers',
+				component: UIOthers,
+				name: 'UIOthers'
 			}]
 		},
 		{

@@ -277,6 +277,42 @@
 				</el-dropdown>
 			</div>
 		</div>
+		<div class="onepath">
+			<div class="title">Steps 步骤条</div>
+			<br /> 基础用法：
+			<div>
+				<el-steps :active="active" finish-status="success" space="400px" align-center>
+					<el-step title="步骤 1" description="这是一段很长很长很长的描述性文字"></el-step>
+					<el-step title="步骤 2" description="居中加align-center属性"></el-step>
+					<el-step title="步骤 3" icon="el-icon-upload" description="带图标加icon属性"></el-step>
+				</el-steps>
+				<el-button style="margin-top: 12px;" @click="next">下一步</el-button>
+			</div>
+			<br /> 竖行用法：
+			<div style="height: 300px;">
+				<el-steps :active="active" direction="vertical">
+					<el-step title="步骤 1"></el-step>
+					<el-step title="步骤 2"></el-step>
+					<el-step title="步骤 3" description="这是一段很长很长很长的描述性文字"></el-step>
+				</el-steps>
+				<el-button style="margin-top: 12px;" @click="next">下一步</el-button>
+			</div>
+			<br /> 简约风格：
+			<div>
+				<el-steps :active="active" simple>
+					<el-step title="步骤 1" icon="el-icon-edit"></el-step>
+					<el-step title="步骤 2" icon="el-icon-upload"></el-step>
+					<el-step title="步骤 3" icon="el-icon-picture"></el-step>
+				</el-steps>
+
+				<el-steps :active="active" finish-status="success" simple style="margin-top: 20px">
+					<el-step title="步骤 1"></el-step>
+					<el-step title="步骤 2"></el-step>
+					<el-step title="步骤 3"></el-step>
+				</el-steps>
+				<el-button style="margin-top: 12px;" @click="next">下一步</el-button>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -289,7 +325,8 @@
 				isCollapse: true,
 				activeName: 'second',
 				activeName2: 'first',
-				tabPosition: 'top'
+				tabPosition: 'top',
+				active: 0
 			};
 		},
 		methods: {
@@ -307,6 +344,9 @@
 			},
 			handleCommand(val) {
 				console.log(val);
+			},
+			next() {
+				if(this.active++ > 2) this.active = 3;
 			}
 		}
 	}
