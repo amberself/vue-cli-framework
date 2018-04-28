@@ -8,8 +8,8 @@ import store from './vuex/store';
 import { SetMomentConfig, SetAxiosConfig, SetRouterTransition } from '@/admin/assets/js/middleware';
 import * as filters from './filters' //全局过滤器
 
-Vue.config.productionTip = false
-Vue.prototype.$http = axios
+Vue.config.productionTip = false;
+Vue.prototype.$http = axios;
 Vue.use(ElementUI);
 
 // 中间件初始化
@@ -20,7 +20,7 @@ SetRouterTransition(router, store);
 //过滤器初始化
 Object.keys(filters).forEach(key => {
 	Vue.filter(key, filters[key])
-})
+});
 
 // 创建Vue实例
 new Vue({
