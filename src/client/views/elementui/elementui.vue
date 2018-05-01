@@ -4,22 +4,25 @@
 <template>
 	<div>
 		<router-link to="/ElementUI/UIBase">
-			<button>Base</button>
+			<button>基本组件</button>
 		</router-link>
 		<router-link to="/ElementUI/UIForm1">
-			<button>Form1</button>
+			<button>表单组件1</button>
 		</router-link>
 		<router-link to="/ElementUI/UIForm2">
-			<button>Form2</button>
+			<button>表单组件2</button>
 		</router-link>
 		<router-link to="/ElementUI/UIData">
-			<button>UIData</button>
+			<button>数据展示组件</button>
 		</router-link>
 		<router-link to="/ElementUI/UINotice">
 			<button>UINotice</button>
 		</router-link>
 		<router-link to="/ElementUI/UINavigation">
 			<button>UINavigation</button>
+		</router-link>
+		<router-link to="/ElementUI/UITable">
+			<button>UITable</button>
 		</router-link>
 		<router-link to="/ElementUI/UIOthers">
 			<button>UIOthers</button>

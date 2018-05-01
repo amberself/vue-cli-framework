@@ -31,7 +31,7 @@ export default new Router({
 					name: 'HChild1',
 					meta: {
 						pageTitle: "HChild1meta",
-						requireAuth: true,
+						needToken: true,
 					}
 				},
 				{
@@ -40,7 +40,7 @@ export default new Router({
 					name: 'HChild1',
 					meta: {
 						pageTitle: "HChild1meta",
-						requireAuth: true,
+						needToken: true,
 					}
 				},
 				{
@@ -49,7 +49,7 @@ export default new Router({
 					name: 'HChild2',
 					meta: {
 						pageTitle: "HChild2meta",
-						requireAuth: true,
+						needToken: true,
 					}
 				}
 			]

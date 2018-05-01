@@ -1,6 +1,6 @@
 <template>
 	<div id="login">
-		登录页
+		<h3>登录页</h3>
 		<el-button type="success" @click="loginBtn">进入系统</el-button>
 	</div>
 </template>
@@ -12,8 +12,13 @@
 		name: 'login',
 		methods: {
 			loginBtn() {
+				//路由本页面跳转页面及传参
 				this.$router.push({
-					path: '/home'
+					path: '/home',
+					query: {
+						name: "shbol",
+						pw: "123456"
+					}
 				})
 			}
 		}

@@ -6,7 +6,10 @@
 
 <script>
 	export default {
-		name: 'child1'
+		name: 'child1',
+		mounted() {
+			console.log(this.$route.query);
+		}
 	}
 </script>
 

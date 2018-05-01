@@ -1,6 +1,3 @@
-<!--
-	elementui base 组件
--->
 <template>
 	<div id="uibase">
 		<div class="onepath">
@@ -33,7 +30,7 @@
 				</el-row>
 			</div>
 		</div>
-		<div id="container" class="onepath">
+		<div class="onepath">
 			<div class="title">container布局容器</div>
 			<br />
 			<div>
@@ -65,7 +62,7 @@
 				</el-container>
 			</div>
 		</div>
-		<div id="icon" class="onepath">
+		<div class="onepath">
 			<div class="title">图标</div>
 			<br />
 			<div>
@@ -76,7 +73,7 @@
 				<el-button type="primary" icon="el-icon-search">搜索</el-button>
 			</div>
 		</div>
-		<div id="button" class="onepath">
+		<div class="onepath">
 			<div class="title">按钮</div>
 			<br />
 			<div>

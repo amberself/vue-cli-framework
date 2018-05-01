@@ -22,7 +22,7 @@ export const SetAxiosConfig = function(router, store) {
 	if(process.env.NODE_ENV == 'production') {
 		_prefix = `${process.env.HOST}/api`
 	} else {
-		_prefix = 'http://127.110.110.110:3000/api'
+		_prefix = '/api'
 	}
 
 	axios.defaults.baseURL = _prefix;
