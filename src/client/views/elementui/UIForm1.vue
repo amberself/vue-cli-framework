@@ -290,8 +290,7 @@
 			<br /> 基础用法：
 			<div>
 				<el-select v-model="value2" placeholder="请选择">
-					<el-option v-for="item in options2" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled">
-					</el-option>
+					<el-option v-for="item in options2" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
 				</el-select>
 			</div>
 			<br /> 可清空单选：

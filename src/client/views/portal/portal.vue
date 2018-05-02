@@ -10,7 +10,28 @@
 <script>
 	export default {
 		name: "",
-		props: [],
+		props: {
+			tObject: {
+				type: Object,
+				default: {}
+			},
+			tNumber: {
+				type: Number,
+				default: 0
+			},
+			tArray: {
+				type: Array,
+				default: []
+			},
+			tBoolean: {
+				type: Boolean,
+				default: false
+			},
+			tString: {
+				type: String,
+				default: ""
+			}
+		},
 		data() {
 			return {};
 		},

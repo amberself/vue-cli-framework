@@ -10,6 +10,7 @@ import UINotice from '../views/elementui/UINotice'
 import UINavigation from '../views/elementui/UINavigation'
 import UIOthers from '../views/elementui/UIOthers'
 import UITable from '../views/elementui/UITable'
+import MyUI from '../views/elementui/MyUI'
 
 Vue.use(Router);
 
@@ -54,6 +55,10 @@ export default new Router({
 				path: '/ElementUI/UITable',
 				component: UITable,
 				name: 'UITable'
+			}, {
+				path: '/ElementUI/MyUI',
+				component: MyUI,
+				name: 'MyUI'
 			}]
 		},
 		{
