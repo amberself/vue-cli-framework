@@ -123,6 +123,8 @@
 	}
 	
 	.selectContent {
+		position: absolute;
+		background-color: white;
 		margin-top: 2px;
 		width: 100%;
 		max-height: 300px;

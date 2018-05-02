@@ -42,8 +42,7 @@
 				<br /> 多级表头：
 				<div>
 					<el-table :data="tableData2" style="width: 100%">
-						<el-table-column prop="date" label="日期" width="150">
-						</el-table-column>
+						<el-table-column prop="date" label="日期" width="150"></el-table-column>
 						<el-table-column label="配送信息">
 							<el-table-column prop="name" label="姓名" width="120"></el-table-column>
 							<el-table-column label="地址">

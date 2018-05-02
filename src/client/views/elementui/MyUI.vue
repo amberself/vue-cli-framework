@@ -8,12 +8,20 @@
 					<base-select :opts="opts" @disp-selectCallBack="selectCallBack"></base-select>
 				</div>
 			</div>
+			<div class="onepath">
+				<div class="title">基础表格组件</div>
+				<br />
+				<div>
+					<base-table></base-table>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
 	import BaseSelect from '../../components/base-select.vue'
+	import BaseTable from '../../components/base-table.vue'
 
 	export default {
 		name: "myui",
@@ -38,7 +46,8 @@
 			}
 		},
 		components: {
-			BaseSelect
+			BaseSelect,
+			BaseTable
 		},
 		methods: {
 			selectCallBack(itemID) {
