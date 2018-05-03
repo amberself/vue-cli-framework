@@ -2,13 +2,13 @@
 	<div class="base-select">
 		<div :class="{selectBox:true,selectFocus:inFocus}">
 			<div class="selectInput" @click="selectClickHandle">
-				<input v-model="inputModel" type="text" autocomplete="off" placeholder="请选择" readonly="readonly" @blur="selectBlurHandle" value="" />
+				<input v-model="inputModel" type="text" autocomplete="off" :placeholder="placeholderStr" readonly="readonly" @blur="selectBlurHandle" value="" />
 				<div class="selectIcon">
 					<i><img src="../assets/img/base-select.png" /></i>
 				</div>
 			</div>
 		</div>
-		<div :class="[{selectContent:true} , contentVisible ? {opacity1:true} : {opacity0:true}]">
+		<div v-if="contentDisplay" :class="[{selectContent:true} , contentVisible ? {opacity1:true} : {opacity0:true}]">
 			<ul>
 				<li :class="{itemSelected : itemSelectedClass(item.id)}" v-for="item in opts" :id="item.id" @click="itemSelectedHandle">{{item.value}}</li>
 			</ul>
@@ -24,13 +24,18 @@
 				id: "",
 				inputModel: "",
 				contentVisible: false,
-				inFocus: false
+				inFocus: false,
+				contentDisplay: false
 			}
 		},
 		props: {
 			opts: {
 				type: Array,
 				default: {}
+			},
+			placeholderStr: {
+				type: String,
+				default: "请选择"
 			}
 		},
 		methods: {
@@ -63,10 +68,15 @@
 		},
 		watch: {
 			contentVisible(val) {
+				let _this = this;
 				if(val) {
 					this.inFocus = true;
+					_this.contentDisplay = true;
 				} else {
 					this.inFocus = false;
+					setTimeout(function() {
+						_this.contentDisplay = false;
+					}, 300)
 				}
 			}
 		}
@@ -123,6 +133,7 @@
 	}
 	
 	.selectContent {
+		z-index: 10000;
 		position: absolute;
 		background-color: white;
 		margin-top: 2px;

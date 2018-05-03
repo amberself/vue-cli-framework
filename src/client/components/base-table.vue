@@ -1,7 +1,7 @@
 <template>
 	<div class="base-table">
 		<!--外部嵌套-->
-		<table cellpadding="0" cellspacing="0" border="0" :width=twidth>
+		<table cellpadding="0" cellspacing="0" border="0">
 			<!--定义每列比例-->
 			<slot name="slotColgroup"></slot>
 			<!--定义表格标题-->
@@ -140,6 +140,9 @@
 		width: 100%;
 		overflow: auto;
 		table {
+			width: 100%;
+			padding-left: 10px;
+			padding-right: 10px;
 			table-layout: fixed;
 			border-collapse: separate;
 			colgroup {

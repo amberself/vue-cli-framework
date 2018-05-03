@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="pagination-box">
 		<div class="info">共{{Math.ceil(totalPage/pageSize)}}页/{{totalPage}}条数据</div>
 		<div class="pageBox">
 			<ul class="pagination">
@@ -111,8 +111,11 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
+	.pagination-box {
+		display: flex;
+	}
+	
 	.info {
-		float: left;
 		margin-top: 30px;
 		margin-right: 0;
 		font-size: 14px;
@@ -120,13 +123,11 @@
 	}
 	
 	.pageBox {
-		float: left;
 		.pagination {
 			width: 100%;
 			list-style: none;
 			overflow: hidden;
 			display: table;
-			height: 50px;
 			padding-left: 0px;
 			li {
 				float: left;

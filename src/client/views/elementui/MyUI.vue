@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div id="myui">
+		<div id="myui" style="background: blanchedalmond;">
 			<div class="onepath">
 				<div class="title">基础下拉列选择组件</div>
 				<br />
@@ -12,7 +12,7 @@
 				<div class="title">基础表格组件</div>
 				<br />
 				<div>
-					<base-table :twidth="2000">
+					<base-table>
 						<!--定义每列比例-->
 						<colgroup slot="slotColgroup">
 							<col v-for="col in tcols" :width="col" />
