@@ -13,11 +13,8 @@ module.exports = {
 		// Paths
 		assetsSubDirectory: 'static',
 		assetsPublicPath: '/',
-
-		//代理(http://www.helloui.net)(http://127.110.110.110:3000)
 		proxyTable: {
 			'/api': {
-				//				target: 'http://www.helloui.net',
 				target: 'http://127.110.110.110:3000',
 				secure: false,
 				changeOrigin: true,
@@ -25,8 +22,6 @@ module.exports = {
 					'^/api': ''
 				},
 				onProxyReq(proxyReq, req, res) {
-					//					proxyReq.setHeader('Referer', 'http://www.helloui.net');
-					//					proxyReq.setHeader('Origin', 'http://www.helloui.net');
 					proxyReq.setHeader('Referer', 'http://127.110.110.110:3000');
 					proxyReq.setHeader('Origin', 'http://127.110.110.110:3000');
 				},

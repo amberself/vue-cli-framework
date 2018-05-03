@@ -76,12 +76,11 @@
 			<div>
 				<el-pagination background layout="prev, pager, next" :page-size="1" :total="100"></el-pagination>
 			</div>
-			<br /> 附加功能:
+			<br /> 完整功能:
 			<div>
 				<!--layout 指定需要显示的布局界面  -->
 				<div class="block">
-					<span class="demonstration">完整功能</span>
-					<el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="5" :page-sizes="[100, 200, 300, 400]" :page-size="100" layout="total, sizes, prev, pager, next, jumper" :total="400"></el-pagination>
+					<el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="5" :page-sizes="[100, 200, 300, 400]" :page-size="10" layout="total, sizes, prev, pager, next, jumper" :total="400"></el-pagination>
 				</div>
 			</div>
 		</div>

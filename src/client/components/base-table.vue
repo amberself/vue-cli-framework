@@ -1,14 +1,26 @@
 <template>
 	<div class="base-table">
-		<table cellpadding="0" cellspacing="0" border="0">
+		<!--外部嵌套-->
+		<table cellpadding="0" cellspacing="0" border="0" :width=twidth>
+			<!--定义每列比例-->
+			<slot name="slotColgroup"></slot>
+			<!--定义表格标题-->
+			<slot name="slotThead"></slot>
+			<!--展示表格数据-->
+			<tbody>
+				<slot name="slotContent"></slot>
+			</tbody>
+		</table>
+		<!--内部源码-->
+		<!--<table cellpadding="0" cellspacing="0" border="0">
 			<colgroup>
-				<col width="1">
-				<col width="1">
-				<col width="1">
-				<col width="1">
-				<col width="1">
-				<col width="1">
-				<col width="3">
+				<col width="1" />
+				<col width="1" />
+				<col width="1" />
+				<col width="1" />
+				<col width="1" />
+				<col width="1" />
+				<col width="3" />
 			</colgroup>
 			<thead>
 				<tr>
@@ -67,30 +79,69 @@
 					</td>
 					<td>
 						<div>
-							<i>查看</i>
-							<i>编辑</i>
+							<button type="button" class="tbtn">
+								<span>查看</span>
+							</button>
+							<button type="button" class="tbtn">
+								<span>编辑</span>
+							</button>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div>2016-05-03</div>
+					</td>
+					<td>
+						<div>王小虎</div>
+					</td>
+					<td>
+						<div>上海</div>
+					</td>
+					<td>
+						<div>普陀区</div>
+					</td>
+					<td>
+						<div>上海市普陀区金沙江路 1518 弄</div>
+					</td>
+					<td>
+						<div>200333</div>
+					</td>
+					<td>
+						<div>
+							<button type="button" class="tbtn">
+								<span>查看</span>
+							</button>
+							<button type="button" class="tbtn">
+								<span>编辑</span>
+							</button>
 						</div>
 					</td>
 				</tr>
 			</tbody>
-		</table>
+		</table>-->
 	</div>
 </template>
 
 <script>
 	export default {
 		name: "BaseTable",
+		props: {
+			twidth: {
+				type: Number,
+				default: 0
+			}
+		},
 	}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 	.base-table {
 		width: 100%;
-		overflow: hidden;
+		overflow: auto;
 		table {
 			table-layout: fixed;
 			border-collapse: separate;
-			width: 1000px;
 			colgroup {
 				col {
 					display: table-column;
@@ -150,7 +201,31 @@
 						}
 					}
 				}
+				tr:hover {
+					background-color: #f5f7fa;
+				}
 			}
+		}
+		.tbtn {
+			margin-left: 10px;
+			padding-left: 0;
+			padding-right: 0;
+			border-color: transparent;
+			display: inline-block;
+			line-height: 1;
+			white-space: nowrap;
+			cursor: pointer;
+			background: transparent;
+			color: #409EFF;
+			text-align: center;
+			box-sizing: border-box;
+			outline: 0;
+			-webkit-transition: .1s;
+			transition: .1s;
+			font-size: 16px;
+		}
+		.tbtn:hover {
+			color: #72B8FF;
 		}
 	}
 </style>
