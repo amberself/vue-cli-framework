@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div id="myui" style="background: blanchedalmond;">
+		<div id="myui">
 			<div class="onepath">
 				<div class="title">基础下拉列选择组件</div>
 				<br />
