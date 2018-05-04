@@ -72,6 +72,11 @@
 					<base-pagination :totalPage="totalPage" :currentPage='currentPage' :pageSize='pageSize' @pagechange="pagechange"></base-pagination>
 				</div>
 			</div>
+			<div class="onepath">
+				<div class="title">询问框组件</div>
+				<br />
+				<button @click="confirmHandle">confirm</button>
+			</div>
 		</div>
 	</div>
 </template>
@@ -159,6 +164,9 @@
 			},
 			pagechange: function(currentPage) {
 				console.log(currentPage);
+			},
+			confirmHandle:function(e){
+				
 			}
 		}
 	}

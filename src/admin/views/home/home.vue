@@ -33,7 +33,7 @@
 			}
 		},
 		mounted() {
-			//			console.log(this.$route.query); //获取上一个页面传入的参数对象
+			console.log(this.$route.query); //获取上一个页面传入的参数对象
 			var wow = new WowJS.WOW({
 				animateClass: 'animated',
 				offset: 100,

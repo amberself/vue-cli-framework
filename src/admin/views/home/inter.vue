@@ -33,7 +33,7 @@
 				//参数
 				let param = {};
 				param.itemID = "123"; //参数传递测试
-				this.$store.commit("SET_DATA", "vuex_jserver");
+				this.$store.commit("SET_DATA", "vuex_jserver"); //this.$store.getters.getData 获取，可以是字符串、数字、方法、对象、参数
 				this.$store.dispatch("getIMockOrder", param).then((data) => {
 					console.log(data);
 				}, (error) => {

@@ -214,8 +214,7 @@
 				this.$confirm('此操作将永久删除该文件, 是否继续?(布局居中)', '提示', {
 					confirmButtonText: '确定',
 					cancelButtonText: '取消',
-					type: 'warning',
-					center: true
+					type: 'warning'
 				}).then(() => {
 					console.log("成功！");
 				}).catch(() => {
@@ -306,7 +305,7 @@
 	}
 </script>
 
-<style style lang="scss" scoped>
+<style lang="scss" scoped>
 	.onepath {
 		margin-top: 20px;
 	}
