@@ -165,9 +165,16 @@
 			pagechange: function(currentPage) {
 				console.log(currentPage);
 			},
-			confirmHandle:function(e){
-				
+			confirmHandle: function(e) {
+				this.$globalConfirm("提示", "确认要删除吗？", () => {
+					console.log("确定");
+				}, () => {
+					console.log("取消");
+				});
 			}
+		},
+		mounted() {
+
 		}
 	}
 </script>
