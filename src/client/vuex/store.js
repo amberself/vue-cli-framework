@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import comp from './modules/comp'
+import comp from './modules/global_comp'
 
 Vue.use(Vuex);
 
