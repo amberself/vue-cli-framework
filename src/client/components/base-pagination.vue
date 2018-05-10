@@ -1,6 +1,7 @@
+<!--分页组件-->
 <template>
 	<div class="pagination-box">
-		<div class="info">共{{Math.ceil(totalPage/pageSize)}}页/{{totalPage}}条数据</div>
+		<div class="info">共{{Math.ceil(total/pageSize)}}页/{{total}}条数据</div>
 		<div class="pageBox">
 			<ul class="pagination">
 				<li :class="{'disabled': current == 1}">
@@ -32,7 +33,7 @@
 			}
 		},
 		props: {
-			totalPage: { // 数据总条数
+			total: { // 数据总条数
 				type: Number,
 				default: 0
 			},
@@ -55,7 +56,7 @@
 		},
 		computed: {
 			page: function() { // 总页数
-				return Math.ceil(this.totalPage / this.pageSize);
+				return Math.ceil(this.total / this.pageSize);
 			},
 			grouplist: function() { // 获取分页页码
 				var len = this.page,
@@ -116,7 +117,7 @@
 	}
 	
 	.info {
-		margin-top: 30px;
+		margin-top: 20px;
 		margin-right: 0;
 		font-size: 14px;
 		color: #8F7979;

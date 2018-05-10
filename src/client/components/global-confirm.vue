@@ -48,7 +48,7 @@
 		height: 100%;
 		opacity: 0.5;
 		background: #000;
-		z-index: 2000;
+		z-index: 2000000;
 	}
 	
 	.confirm-box {
@@ -64,7 +64,7 @@
 		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 		text-align: left;
 		overflow: hidden;
-		z-index: 3000;
+		z-index: 2000001;
 		.title {
 			position: relative;
 			height: 39px;

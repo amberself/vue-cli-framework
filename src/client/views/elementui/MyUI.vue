@@ -4,8 +4,13 @@
 			<div class="onepath">
 				<div class="title">基础下拉列选择组件</div>
 				<br />
-				<div style="width: 200px;">
+				<div style="width: 1000px;">
 					<base-select :opts="opts" @disp-selectCallBack="selectCallBack"></base-select>
+				</div>
+				<div class="title">可输入下拉列选择组件</div>
+				<br />
+				<div style="width: 200px;">
+					<base-input-select :opts="opts" @disp-selectCallBack="selectCallBack"></base-input-select>
 				</div>
 			</div>
 			<div class="onepath">
@@ -85,6 +90,7 @@
 	import BaseSelect from '../../components/base-select.vue'
 	import BaseTable from '../../components/base-table.vue'
 	import BasePagination from '../../components/base-pagination.vue'
+	import BaseInputSelect from '../../components/base-input-select.vue'
 	export default {
 		name: "myui",
 		data() {
@@ -104,6 +110,9 @@
 				}, {
 					id: 'ID5',
 					value: '北京烤鸭'
+				}, {
+					id: 'ID6',
+					value: '烤肉'
 				}],
 				tcols: [1, 1, 1, 1, 1, 1, 3],
 				thead: [
@@ -152,6 +161,7 @@
 		},
 		components: {
 			BaseSelect,
+			BaseInputSelect,
 			BaseTable,
 			BasePagination
 		},
@@ -187,5 +197,6 @@
 	.title {
 		background-color: cadetblue;
 		padding: 5px;
+		margin-top: 10px;
 	}
 </style>

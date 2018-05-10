@@ -1,3 +1,4 @@
+<!--表格组件-->
 <template>
 	<div class="base-table">
 		<!--外部嵌套-->

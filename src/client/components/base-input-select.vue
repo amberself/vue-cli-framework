@@ -2,16 +2,17 @@
 <template>
 	<div class="base-select">
 		<div :class="{selectBox:true,selectFocus:inFocus}">
-			<div class="selectInput" @click="selectClickHandle">
-				<input v-model="inputModel" type="text" autocomplete="off" :placeholder="placeholderStr" readonly="readonly" @blur="selectBlurHandle" value="" />
-				<div class="selectIcon">
+			<div class="selectInput" @click.capture="selectClickHandle($event);">
+				<!--@blur="selectBlurHandle"-->
+				<input v-model="inputModel" v-focus="contentVisible" type="text" @blur="selectBlurHandle" :placeholder="placeholderStr" value="" />
+				<span class="selectIcon">
 					<i><img src="../assets/img/base-select.png" /></i>
-				</div>
+				</span>
 			</div>
 		</div>
 		<div v-if="contentDisplay" :class="[{selectContent:true} , contentVisible ? {opacity1:true} : {opacity0:true}]">
 			<ul>
-				<li :class="{itemSelected : itemSelectedClass(item.id)}" v-for="item in opts" :id="item.id" @click="itemSelectedHandle">{{item.value}}</li>
+				<li :class="{itemSelected : itemSelectedClass(item.id)}" v-for="item in originalOpts" :id="item.id" @click="itemSelectedHandle">{{item.value}}</li>
 			</ul>
 		</div>
 	</div>
@@ -26,7 +27,8 @@
 				inputModel: "",
 				contentVisible: false,
 				inFocus: false,
-				contentDisplay: false
+				contentDisplay: false,
+				originalOpts: []
 			}
 		},
 		props: {
@@ -43,8 +45,20 @@
 				default: "请选择"
 			}
 		},
+		directives: {
+			focus: {
+				update: function(el, {
+					value
+				}) {
+					if(value) {
+						el.focus();
+					}
+				}
+			}
+		},
 		methods: {
-			selectClickHandle() {
+			selectClickHandle(event) {
+				event.preventDefault();
 				if(this.contentVisible) {
 					this.contentVisible = false;
 				} else {
@@ -78,6 +92,21 @@
 			}
 		},
 		watch: {
+			inputModel(val) {
+				let _this = this;
+				val = val.replace(/\s/g, ""); //去空格
+				if(val == "") {
+					_this.originalOpts = _this.opts;
+				} else {
+					let serachList = [];
+					for(let i = 0; i < _this.opts.length; i++) {
+						if(_this.opts[i].value.indexOf(val) != -1) {
+							serachList.push(_this.opts[i]);
+						}
+					}
+					_this.originalOpts = serachList;
+				}
+			},
 			contentVisible(val) {
 				let _this = this;
 				if(val) {
@@ -93,6 +122,7 @@
 		},
 		mounted() {
 			let _this = this;
+			_this.originalOpts = _this.opts;
 			if(_this.defaultSelect) {
 				let index = _this.defaultSelect - 1;
 				if(_this.opts.length > 0 && index >= 0) {
@@ -126,22 +156,29 @@
 				position: relative;
 				height: 34px;
 				border: none;
-				text-indent: 10px;
+				outline: none;
 				font-size: 16px;
 				margin-top: 2px;
 				cursor: pointer;
 				overflow: hidden;
+				border-radius: 5px;
+				text-indent: 10px;
 				width: 100%;
+			}
+			input:focus {
+				border: none;
 				outline: none;
 			}
 			.selectIcon {
+				border-radius: 5px;
 				position: absolute;
 				top: 0px;
-				right: 2px;
+				right: 0px;
 				pointer-events: none;
-				background-color: white;
-				width: 22px;
+				background-color: #fff;
+				width: 20px;
 				height: 40px;
+				padding-left: 10px;
 				i {
 					margin-left: -5px;
 					display: block;
