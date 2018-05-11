@@ -1,9 +1,10 @@
 <!--下拉列组件-->
 <template>
-	<div class="base-select">
+	<div class="base-select" @mouseenter="mouseOverHandle" @mouseleave="mouseOutHandle">
 		<div :class="{selectBox:true,selectFocus:inFocus}">
 			<div class="selectInput" @click="selectClickHandle">
-				<input v-model="inputModel" type="text" autocomplete="off" :placeholder="placeholderStr" readonly="readonly" @blur="selectBlurHandle" value="" />
+				<!--@blur="selectBlurHandle"-->
+				<input v-model="inputModel" v-focus="setFocus" type="text" autocomplete="off" @blur="selectBlurHandle" :placeholder="placeholderStr" readonly="readonly" value="" />
 				<div class="selectIcon">
 					<i><img src="../assets/img/base-select.png" /></i>
 				</div>
@@ -26,7 +27,9 @@
 				inputModel: "",
 				contentVisible: false,
 				inFocus: false,
-				contentDisplay: false
+				contentDisplay: false,
+				setFocus: false,
+				ieFocus: false
 			}
 		},
 		props: {
@@ -43,7 +46,28 @@
 				default: "请选择"
 			}
 		},
+		directives: {
+			focus: {
+				update: function(el, {
+					value
+				}) {
+					if(value) {
+						el.focus();
+					}
+				}
+			}
+		},
 		methods: {
+			mouseOverHandle(e) {
+				this.ieFocus = true;
+				this.setFocus = false;
+				this.setFocus = true;
+			},
+			mouseOutHandle(e) {
+				this.ieFocus = false;
+				this.setFocus = false;
+				this.setFocus = true;
+			},
 			selectClickHandle() {
 				if(this.contentVisible) {
 					this.contentVisible = false;
@@ -51,9 +75,9 @@
 					this.contentVisible = true;
 				}
 			},
-			selectBlurHandle() {
-				if(this.contentVisible) {
-					let _this = this;
+			selectBlurHandle(e) {
+				let _this = this;
+				if(this.ieFocus == false) {
 					_this.contentVisible = false;
 				}
 			},
@@ -131,7 +155,7 @@
 				margin-top: 2px;
 				cursor: pointer;
 				overflow: hidden;
-				width: 100%;
+				width: 98%;
 				outline: none;
 			}
 			.selectIcon {

@@ -4,12 +4,12 @@
 			<div class="onepath">
 				<div class="title">基础下拉列选择组件</div>
 				<br />
-				<div style="width: 1000px;">
+				<div style="width: 400px;">
 					<base-select :opts="opts" @disp-selectCallBack="selectCallBack"></base-select>
 				</div>
 				<div class="title">可输入下拉列选择组件</div>
 				<br />
-				<div style="width: 200px;">
+				<div style="width: 400px;">
 					<base-input-select :opts="opts" @disp-selectCallBack="selectCallBack"></base-input-select>
 				</div>
 			</div>
@@ -112,6 +112,24 @@
 					value: '北京烤鸭'
 				}, {
 					id: 'ID6',
+					value: '烤肉'
+				},{
+					id: 'ID7',
+					value: '黄金糕'
+				}, {
+					id: 'ID8',
+					value: '双皮奶'
+				}, {
+					id: 'ID9',
+					value: '蚵仔煎'
+				}, {
+					id: 'ID10',
+					value: '龙须面'
+				}, {
+					id: 'ID11',
+					value: '北京烤鸭'
+				}, {
+					id: 'ID12',
 					value: '烤肉'
 				}],
 				tcols: [1, 1, 1, 1, 1, 1, 3],

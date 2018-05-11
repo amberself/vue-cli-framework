@@ -163,7 +163,7 @@
 				overflow: hidden;
 				border-radius: 5px;
 				text-indent: 10px;
-				width: 100%;
+				width: 98%;
 			}
 			input:focus {
 				border: none;
