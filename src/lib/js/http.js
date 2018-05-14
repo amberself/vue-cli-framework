@@ -1,5 +1,3 @@
-//commit('START_LOADING')和commit('FINISH_LOADING')为全局的加载状态，可放置在vuex的app状态模块中
-
 import vue from 'vue';
 import axios from 'axios';
 

@@ -73,9 +73,13 @@
 			<div class="onepath">
 				<div class="title">分页组件</div>
 				<br />
+				<br /> 基本样式：
 				<div>
-					<base-pagination :totalPage="totalPage" :currentPage='currentPage' :pageSize='pageSize' @pagechange="pagechange"></base-pagination>
+					<base-pagination :total="total" :currentPage='currentPage' :pageSize='pageSize' @pagechange="pagechange"></base-pagination>
 				</div>
+				<br />
+				<br /> 样式2
+				<base-pagination-t2 :total="total" :currentPage='currentPage' :pageSize='pageSize' @pagechange="pagechange"></base-pagination-t2>
 			</div>
 			<div class="onepath">
 				<div class="title">询问框组件</div>
@@ -90,6 +94,7 @@
 	import BaseSelect from '../../components/base-select.vue'
 	import BaseTable from '../../components/base-table.vue'
 	import BasePagination from '../../components/base-pagination.vue'
+	import BasePaginationT2 from '../../components/base-pagination-t2.vue'
 	import BaseInputSelect from '../../components/base-input-select.vue'
 	export default {
 		name: "myui",
@@ -113,7 +118,7 @@
 				}, {
 					id: 'ID6',
 					value: '烤肉'
-				},{
+				}, {
 					id: 'ID7',
 					value: '黄金糕'
 				}, {
@@ -172,7 +177,7 @@
 					address: "厦门市",
 					tel: "361000"
 				}],
-				totalPage: 150, // 记录总条数
+				total: 50, // 记录总条数
 				pageSize: 10, // 每页显示条数
 				currentPage: 1, // 当前的页数
 			}
@@ -181,7 +186,8 @@
 			BaseSelect,
 			BaseInputSelect,
 			BaseTable,
-			BasePagination
+			BasePagination,
+			BasePaginationT2
 		},
 		methods: {
 			selectCallBack(itemID) {

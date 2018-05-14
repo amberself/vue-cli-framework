@@ -8,14 +8,14 @@
 					<a href="javascript:;" @click="setCurrent(current - 1)">
 						< </a>
 				</li>
-				<li :class="[hideFirstPageBtn ? {hideFirstPageBtnClass:true}:{hideFirstPageBtnClass:false}]">
-					<a href="javascript:;" @click="setCurrent(1)"> 1 </a>
+				<li :class="{'disabled': current == 1}">
+					<a href="javascript:;" @click="setCurrent(1)"> 首页 </a>
 				</li>
 				<li v-for="p in grouplist" :class="{'active': current == p.val}">
 					<a href="javascript:;" @click="setCurrent(p.val)"> {{ p.text }} </a>
 				</li>
-				<li :class="[hideLastPageBtn ? {hideLastPageBtnClass:true}:{hideLastPageBtnClass:false}]">
-					<a href="javascript:;" @click="setCurrent(page)"> {{page}} </a>
+				<li :class="{'disabled': current == page}">
+					<a href="javascript:;" @click="setCurrent(page)"> 尾页 </a>
 				</li>
 				<li :class="{'disabled': current == page}">
 					<a href="javascript:;" @click="setCurrent(current + 1)"> > </a>
@@ -29,9 +29,7 @@
 	export default {
 		data() {
 			return {
-				current: this.currentPage,
-				hideFirstPageBtn: false,
-				hideLastPageBtn: false
+				current: this.currentPage
 			}
 		},
 		props: {
@@ -49,9 +47,9 @@
 			},
 			pagegroup: { // 分页条数
 				type: Number,
-				default: 3,
+				default: 5,
 				coerce: function(v) {
-					v = v > 0 ? v : 3;
+					v = v > 0 ? v : 5;
 					return v % 2 === 1 ? v : v + 1;
 				}
 			}
@@ -73,8 +71,6 @@
 							val: this.page - len
 						});
 					};
-					this.hideFirstPageBtn = true;
-					this.hideLastPageBtn = true;
 					return temp;
 				}
 				while(len--) {
@@ -92,49 +88,15 @@
 					});
 				} while (temp.length);
 				if(this.page > this.pagegroup) {
-					if((list[0].val - 1) == 1) {
-						list.unshift({
-							text: '1',
-							val: '1'
-						});
-					} else {
-						(this.current > count + 1) && list.unshift({
-							text: '...',
-							val: list[0].val - 1
-						});
-					}
-
-					if((list[list.length - 1].val + 1) == this.page) {
-						list.push({
-							text: this.page,
-							val: this.page
-						});
-					} else {
-						(this.current < this.page - count) && list.push({
-							text: '...',
-							val: list[list.length - 1].val + 1
-						});
-					}
-
+					(this.current > count + 1) && list.unshift({
+						text: '...',
+						val: list[0].val - 1
+					});
+					(this.current < this.page - count) && list.push({
+						text: '...',
+						val: list[list.length - 1].val + 1
+					});
 				}
-				let listLen = list.length;
-				if(listLen <= this.pagegroup) {
-					this.hideFirstPageBtn = true;
-					this.hideLastPageBtn = true;
-				} else {
-					if(list[0].text == "1") {
-						this.hideFirstPageBtn = true;
-					} else {
-						this.hideFirstPageBtn = false;
-					}
-
-					if(list[(listLen - 1)].text == this.page) {
-						this.hideLastPageBtn = true;
-					} else {
-						this.hideLastPageBtn = false;
-					}
-				}
-
 				return list;
 			}
 		},
@@ -150,14 +112,6 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-	.hideFirstPageBtnClass {
-		display: none;
-	}
-	
-	.hideLastPageBtnClass {
-		display: none;
-	}
-	
 	.pagination-box {
 		display: flex;
 	}
